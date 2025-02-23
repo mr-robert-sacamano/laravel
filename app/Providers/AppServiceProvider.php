@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\State\MintProvider;
+use ApiPlatform\State\ProviderInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,5 +22,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+
+		$this->app->tag(MintProvider::class, ProviderInterface::class);
     }
 }
