@@ -1,0 +1,22 @@
+services:
+
+  laravel:
+    build:
+      args:
+        WWWGROUP: 1000
+      context: .
+    container_name: api-laravel
+    env_file:
+      - ../.env    
+    ports:
+      - 8000:80
+    volumes:
+      - ../:/var/www/html
+
+  postgres:
+    container_name: api-postgres
+    image: postgres
+    environment:
+      POSTGRES_DB: laravel
+      POSTGRES_PASSWORD: root
+      POSTGRES_USER: root
